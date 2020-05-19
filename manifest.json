@@ -34,17 +34,6 @@
         "port": {
           "type": "string",
           "title": "The serial port to which the Sigfox Iohtee dongle is attached"
-        },
-        "message": {
-          "type": "array",
-          "title": "Bytes to send",
-          "items": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "minItems": 1,
-          "maxItems": 12
         }
       }
     }
