@@ -1,0 +1,75 @@
+{
+  "name": "sigfox-iohtee-adapter",
+  "display_name": "Sigfox Iohtee Adapter",
+  "version": "0.1.0",
+  "description": "Sends a 1-12 byte message to the Sigfox Cloud",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcohler/sigfox-iohtee-adapter.git"
+  },
+  "author": "Geoffrey Cohler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gcohler/sigfox-iohtee-adapter/issues"
+  },
+  "homepage": "https://github.com/gcohler/sigfox-iohtee-adapter#readme",
+  "files": [
+    "LICENSE",
+    "manifest.json",
+    "lib/index.js",
+    "lib/sigfox-iohtee-adapter.js",
+    "lib/sigfox-iohtee-device.js"
+  ],
+  "moziot": {
+    "api": {
+      "min": 2,
+      "max": 2
+    },
+    "plugin": true,
+    "exec": "{nodeLoader} {path}",
+    "config": {
+      "debug": true,
+      "port": "/dev/ttyUSB0"
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "port"
+      ],
+      "properties": {
+        "debug": {
+          "type": "boolean",
+          "title": "Enable debug logs"
+        },
+        "port": {
+          "type": "string",
+          "title": "The serial port to which the Sigfox Iohtee dongle is attached"
+        },
+        "message": {
+          "type": "array",
+          "title": "Bytes to send",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "minItems": 1,
+          "maxItems": 12
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "sigfox-iohtee-driver": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.3",
+    "@types/node": "^12.12.17"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "manifest_version": 1,
+  "id": "sigfox-iohtee-adapter",
+  "name": "Sigfox Iohtee Adapter",
+  "short_name": "Sigfox Iohtee",
+  "version": "0.1.0",
+  "description": "Sends 1-12 bytes to the Sigfox Cloud",
+  "homepage_url": "https://github.com/gcohler/sigfox-iohtee-adapter#readme",
+  "license": "MIT",
+  "author": "Geoffrey Cohler",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "strict_min_version": "0.12.0",
+      "strict_max_version": "*",
+      "primary_type": "adapter"
+    }
+  },
+  "options": {
+    "default": {
+      "debug": false,
+      "port": "/dev/ttyUSB0"
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "port"
+      ],
+      "properties": {
+        "debug": {
+          "type": "boolean",
+          "title": "Enable debug logs"
+        },
+        "port": {
+          "type": "string",
+          "title": "The serial port to which the Sigfox Iohtee dongle is attached"
+        },
+        "message": {
+          "type": "array",
+          "title": "Bytes to send",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "minItems": 1,
+          "maxItems": 12
+        }
+      }
+    }
+  }
+}
