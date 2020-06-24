@@ -53,10 +53,10 @@
     }
   },
   "dependencies": {
-    "sigfox-iohtee-driver": "https://github.com/gcohler/sigfox-iohtee-driver.git",
-    "node-wifi-scanner": "^1.1.2-np"
+    "sigfox-iohtee-driver": "https://github.com/gcohler/sigfox-iohtee-driver.git"
   },
   "devDependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "node-wifi-scanner": "^1.1.2-np"
   }
 }
